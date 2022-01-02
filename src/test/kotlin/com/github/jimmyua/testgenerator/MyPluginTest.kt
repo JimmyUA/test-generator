@@ -26,6 +26,16 @@ class MyPluginTest : BasePlatformTestCase() {
     override fun getTestDataPath() = "src/test/testData/rename"
 
     fun testRename() {
+
+        val joinToString = listOf<String>("jds", "sjgsd")
+                .map {field ->
+                    """
+                      @Mock
+                      private $field
+                """.trimIndent()
+                }
+                .joinToString(System.lineSeparator())
+        println(joinToString)
         myFixture.testRename("foo.xml", "foo_after.xml", "a2")
     }
 }
